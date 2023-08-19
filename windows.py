@@ -5,7 +5,7 @@ from tkinter import Entry
 from PIL import Image, ImageTk
 import locale
 
-# Set locale to country -----------------------------------------------
+# Set locale to country ---------------------------------------------------------
 locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
 
 # Investment calculation function -----------------------------------------------
@@ -84,7 +84,6 @@ e_value_percentage.place(x=275, y=50)
 # Frame Result ------------------------------------------------------------------------
 frame_result = Frame(windows, width=300, height=310, background='#4E6E81', relief="raised")
 frame_result.grid(row=3, column=0, sticky=NSEW)
-
 # Frame Day ---------------------------------------------------------------------------
 frame_day = Frame(frame_result, width=200, height=100, background=cor1, relief="solid")
 frame_day.grid(row=0, column=0, padx=1, pady=1, sticky=NSEW)
@@ -93,7 +92,6 @@ app_day = Label(frame_day, text="Daily Profit", width=15, anchor=CENTER, font=('
 app_day.place(x=20, y=7)
 e_value_day = Label(frame_day, text="", width=10, anchor=CENTER, font=('Verdana 15'), background=cor1,foreground=cor0)
 e_value_day.place(x=20, y=35)
-
 # Frame weekly ---------------------------------------------------------------------------
 frame_weekly = Frame(frame_result, width=200, height=100, background=cor1, relief="solid")
 frame_weekly.grid(row=0, column=1, padx=1, pady=1, sticky=NSEW)
@@ -102,7 +100,6 @@ app_weekly = Label(frame_weekly, text='Weekly Profit', width=15, anchor=CENTER, 
 app_weekly.place(x=20, y=7)
 e_value_weekly = Label(frame_weekly, text="", width=10, anchor=CENTER, font=('Verdana 15'), background=cor1,foreground=cor0)
 e_value_weekly.place(x=20, y=35)
-
 # Frame Month ---------------------------------------------------------------------------
 frame_month = Frame(frame_result, width=200, height=100, background=cor1, relief="solid")
 frame_month.grid(row=1, column=0, padx=1, pady=1, sticky=NSEW)
@@ -111,7 +108,6 @@ app_monthly = Label(frame_month, text='Monthly Profit', width=13, anchor=CENTER,
 app_monthly.place(x=20, y=7)
 e_value_monthly = Label(frame_month, text="", width=10, anchor=CENTER, font=('Verdana 15'), background=cor1,foreground=cor0)
 e_value_monthly.place(x=20, y=35)
-
 # Frame Totally ---------------------------------------------------------------------------
 frame_totally = Frame(frame_result, width=200, height=100, background=cor1, relief="solid")
 frame_totally.grid(row=1, column=1, padx=1, pady=1, sticky=NSEW)
