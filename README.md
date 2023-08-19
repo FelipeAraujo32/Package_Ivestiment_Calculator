@@ -1,4 +1,5 @@
-# Application package for financial control
+# Application package for Investment Calculator
  
- Application package for financial control: Name of expenses, amounts payable, input amounts and due date.
+Simple project, to increase my knowledge.
+I present my calculator to simulate investment returns, according to days and procetagem.
  

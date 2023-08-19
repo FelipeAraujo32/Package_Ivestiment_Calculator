@@ -3,7 +3,32 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import Entry
 from PIL import Image, ImageTk
-import main
+import locale
+
+# Set locale to country -----------------------------------------------
+locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
+
+# Investment calculation function -----------------------------------------------
+def calculate_profit(event):    
+    try:
+        initial_investment = float(e_value_investiment.get())
+        days_invested = int(e_value_days.get())
+        return_percentage = float(e_value_percentage.get())
+        
+        daily_return = return_percentage / 100 / days_invested
+        
+        daily_profit = (initial_investment * daily_return)
+        weekly_profit = (daily_profit * 7)
+        monthly_profit = (daily_profit * 30)
+        total_profit = initial_investment * (1 + return_percentage / 100)
+        
+        e_value_day['text'] = locale.currency(daily_profit, symbol=True, grouping=True)
+        e_value_weekly['text'] = locale.currency(weekly_profit, symbol=True, grouping=True)
+        e_value_monthly['text'] = locale.currency(monthly_profit, symbol=True, grouping=True)
+        e_value_totally['text'] = locale.currency(total_profit, symbol=True, grouping=True)
+
+    except ValueError as e:
+        pass
 
 # Cores -------------------------------------------------------------------
 
@@ -32,7 +57,7 @@ frame_up.grid(row=0, column=0)
 app_img =Image.open('soon.png')
 app_img = app_img.resize((40,40))
 app_img = ImageTk.PhotoImage(app_img)
-app_logo = Label(frame_up, image=app_img, text="Investment Calculator", font=('Verdana 14'), width=350, compound=LEFT, padx=5, anchor=CENTER, background=cor1,foreground=cor0)
+app_logo = Label(frame_up, image=app_img, text="Investment Calculator", font=('Verdana 14'), width=350, compound=LEFT, padx=5, anchor=CENTER, background=cor1, foreground=cor0)
 app_logo.place(x=5, y=0)
 line = Label(frame_up, width=450, height=1, font=('Verdana 1'), background='#4E6E81',foreground=cor1)
 line.place(x=0, y=48)
@@ -66,7 +91,7 @@ frame_day.grid(row=0, column=0, padx=1, pady=1, sticky=NSEW)
 # Daily Result
 app_day = Label(frame_day, text="Daily Profit", width=15, anchor=CENTER, font=('Verdana 11'), background=cor1,foreground='#4E6E81')
 app_day.place(x=20, y=7)
-e_value_day = Label(frame_day, text="1000", width=10, anchor=CENTER, font=('Verdana 15'), background=cor1,foreground=cor0)
+e_value_day = Label(frame_day, text="", width=10, anchor=CENTER, font=('Verdana 15'), background=cor1,foreground=cor0)
 e_value_day.place(x=20, y=35)
 
 # Frame weekly ---------------------------------------------------------------------------
@@ -75,7 +100,7 @@ frame_weekly.grid(row=0, column=1, padx=1, pady=1, sticky=NSEW)
 # Weekly Profit
 app_weekly = Label(frame_weekly, text='Weekly Profit', width=15, anchor=CENTER, font=('Verdana 11'), background=cor1, foreground='#4E6E81')
 app_weekly.place(x=20, y=7)
-e_value_weekly = Label(frame_weekly, text='5000', width=10, anchor=CENTER, font=('Verdana 15'), background=cor1,foreground=cor0)
+e_value_weekly = Label(frame_weekly, text="", width=10, anchor=CENTER, font=('Verdana 15'), background=cor1,foreground=cor0)
 e_value_weekly.place(x=20, y=35)
 
 # Frame Month ---------------------------------------------------------------------------
@@ -84,20 +109,22 @@ frame_month.grid(row=1, column=0, padx=1, pady=1, sticky=NSEW)
 # Monthly Profit
 app_monthly = Label(frame_month, text='Monthly Profit', width=13, anchor=CENTER, font=('Verdana 11'), background=cor1, foreground='#4E6E81')
 app_monthly.place(x=20, y=7)
-e_value_monthly = Label(frame_month, text='5000', width=10, anchor=CENTER, font=('Verdana 15'), background=cor1,foreground=cor0)
+e_value_monthly = Label(frame_month, text="", width=10, anchor=CENTER, font=('Verdana 15'), background=cor1,foreground=cor0)
 e_value_monthly.place(x=20, y=35)
 
-# Frame Totally ----------------------
+# Frame Totally ---------------------------------------------------------------------------
 frame_totally = Frame(frame_result, width=200, height=100, background=cor1, relief="solid")
 frame_totally.grid(row=1, column=1, padx=1, pady=1, sticky=NSEW)
 # Totally Profit
 app_totally = Label(frame_totally, text='Totally Profit', width=15, anchor=CENTER, font=('Verdana 11'), background=cor1, foreground='#4E6E81')
 app_totally.place(x=20, y=7)
-e_value_totally = Label(frame_totally, text='5000', width=10, anchor=CENTER, font=('Verdana 15'), background=cor1,foreground=cor0)
+e_value_totally = Label(frame_totally, text="", width=10, anchor=CENTER, font=('Verdana 15'), background=cor1,foreground=cor0)
 e_value_totally.place(x=20, y=35)
 
-e_value_investiment.bind("<KeyRelease>", main.calculate_profit)
-
+# Key Release ---------------------------------------------------------------------------
+e_value_investiment.bind("<KeyRelease>", calculate_profit)
+e_value_days.bind("<KeyRelease>", calculate_profit)
+e_value_percentage.bind("<KeyRelease>", calculate_profit)
 
 windows.mainloop()
 
