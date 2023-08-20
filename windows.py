@@ -35,10 +35,7 @@ def calculate_profit(event):
 cor0 = "#2e2d2b" #Preta
 cor1 = "#feffff" #Branca
 cor2 = "#4fa882" #Verde
-cor3 = "#38576b" #valor
-cor4 = "403d3d"
-cor5 = "F3E99F" #Amarelo
-cor6 = "03091f" #Azul
+
 # Windows -------------------------------------------------------------------
 
 windows = Tk()
