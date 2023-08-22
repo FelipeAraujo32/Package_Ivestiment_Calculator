@@ -22,10 +22,10 @@ def calculate_profit(event):
         monthly_profit = (daily_profit * 30)
         total_profit = initial_investment * (1 + return_percentage / 100)
         
-        e_value_day['text'] = locale.currency(daily_profit, symbol=True, grouping=True)
-        e_value_weekly['text'] = locale.currency(weekly_profit, symbol=True, grouping=True)
-        e_value_monthly['text'] = locale.currency(monthly_profit, symbol=True, grouping=True)
-        e_value_totally['text'] = locale.currency(total_profit, symbol=True, grouping=True)
+        l_value_day['text'] = locale.currency(daily_profit, symbol=True, grouping=True)
+        l_value_weekly['text'] = locale.currency(weekly_profit, symbol=True, grouping=True)
+        l_value_monthly['text'] = locale.currency(monthly_profit, symbol=True, grouping=True)
+        l_value_totally['text'] = locale.currency(total_profit, symbol=True, grouping=True)
 
     except ValueError as e:
         pass
@@ -87,32 +87,32 @@ frame_day.grid(row=0, column=0, padx=1, pady=1, sticky=NSEW)
 # Daily Result
 app_day = Label(frame_day, text="Daily Profit", width=15, anchor=CENTER, font=('Verdana 11'), background=cor1,foreground='#4E6E81')
 app_day.place(x=20, y=7)
-e_value_day = Label(frame_day, text="", width=10, anchor=CENTER, font=('Verdana 15'), background=cor1,foreground=cor0)
-e_value_day.place(x=20, y=35)
+l_value_day = Label(frame_day, text="", width=10, anchor=CENTER, font=('Verdana 15'), background=cor1,foreground=cor0)
+l_value_day.place(x=20, y=35)
 # Frame weekly ---------------------------------------------------------------------------
 frame_weekly = Frame(frame_result, width=200, height=100, background=cor1, relief="solid")
 frame_weekly.grid(row=0, column=1, padx=1, pady=1, sticky=NSEW)
 # Weekly Profit
 app_weekly = Label(frame_weekly, text='Weekly Profit', width=15, anchor=CENTER, font=('Verdana 11'), background=cor1, foreground='#4E6E81')
 app_weekly.place(x=20, y=7)
-e_value_weekly = Label(frame_weekly, text="", width=10, anchor=CENTER, font=('Verdana 15'), background=cor1,foreground=cor0)
-e_value_weekly.place(x=20, y=35)
+l_value_weekly = Label(frame_weekly, text="", width=10, anchor=CENTER, font=('Verdana 15'), background=cor1,foreground=cor0)
+l_value_weekly.place(x=20, y=35)
 # Frame Month ---------------------------------------------------------------------------
 frame_month = Frame(frame_result, width=200, height=100, background=cor1, relief="solid")
 frame_month.grid(row=1, column=0, padx=1, pady=1, sticky=NSEW)
 # Monthly Profit
 app_monthly = Label(frame_month, text='Monthly Profit', width=13, anchor=CENTER, font=('Verdana 11'), background=cor1, foreground='#4E6E81')
 app_monthly.place(x=20, y=7)
-e_value_monthly = Label(frame_month, text="", width=10, anchor=CENTER, font=('Verdana 15'), background=cor1,foreground=cor0)
-e_value_monthly.place(x=20, y=35)
+l_value_monthly = Label(frame_month, text="", width=10, anchor=CENTER, font=('Verdana 15'), background=cor1,foreground=cor0)
+l_value_monthly.place(x=20, y=35)
 # Frame Totally ---------------------------------------------------------------------------
 frame_totally = Frame(frame_result, width=200, height=100, background=cor1, relief="solid")
 frame_totally.grid(row=1, column=1, padx=1, pady=1, sticky=NSEW)
 # Totally Profit
 app_totally = Label(frame_totally, text='Totally Profit', width=15, anchor=CENTER, font=('Verdana 11'), background=cor1, foreground='#4E6E81')
 app_totally.place(x=20, y=7)
-e_value_totally = Label(frame_totally, text="", width=10, anchor=CENTER, font=('Verdana 15'), background=cor1,foreground=cor0)
-e_value_totally.place(x=20, y=35)
+l_value_totally = Label(frame_totally, text="", width=10, anchor=CENTER, font=('Verdana 15'), background=cor1,foreground=cor0)
+l_value_totally.place(x=20, y=35)
 
 # Key Release ---------------------------------------------------------------------------
 e_value_investiment.bind("<KeyRelease>", calculate_profit)
